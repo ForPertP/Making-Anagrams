@@ -25,6 +25,31 @@ int makingAnagrams(string s1, string s2)
     return count;
 }
 
+int makingAnagrams2(string s1, string s2)
+{
+    int count = 0;
+    std::vector<int> temp(26);
+    
+    for (int i = 0, j = 0; i < s1.length() || j < s2.length(); ++i, ++j) 
+    {            
+        if (i < s1.length())
+        {
+            temp[s1.at(i) - 'a']++;
+        }
+        if (j < s2.length())
+        {
+            temp[s2.at(j) - 'a']--;
+        }
+    }
+    
+    for (int i = 0; i < 26; ++i)
+    {
+        count += std::abs(temp[i]);
+    }
+    
+    return count;
+}
+
 int main()
 {
     ofstream fout(getenv("OUTPUT_PATH"));
@@ -43,4 +68,3 @@ int main()
 
     return 0;
 }
-
