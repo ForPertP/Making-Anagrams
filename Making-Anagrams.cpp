@@ -11,6 +11,26 @@ using namespace std;
  *  2. STRING s2
  */
 
+int makingAnagrams(string s1, string s2) {
+    std::vector<int> cnt(26, 0);
+
+    for (char c : s1) {
+        cnt[c - 'a']++;
+    }
+
+    for (char c : s2) {
+        cnt[c - 'a']--;
+    }
+
+    int deletions = 0;
+    for (int x : cnt) {
+        deletions += std::abs(x);
+    }
+
+    return deletions;
+}
+
+
 int makingAnagrams(string s1, string s2) 
 {
     int count = 0;
