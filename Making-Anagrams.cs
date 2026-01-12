@@ -43,8 +43,8 @@ class Result
 
         return deletions;
     }
-
 }
+
 
 class Solution
 {
